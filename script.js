@@ -1,17 +1,20 @@
 function getComputerChoice() {
-    let array = [`Rock`, `Paper`, `Scissors`];
+    let array = ["Rock", "Paper", "Scissors"];
     let randomChoice = array[Math.floor(Math.random()*array.length)];
     return randomChoice;
 }
 
 console.log(getComputerChoice())
 
+
 function roundGame(playerSelection, computerSelection) {
     if (playerSelection.toLowerCase() === "rock") {
         if (computerSelection === "Scissors") {
+            playerScore++;
             return "You win the round!";
         }
         else if (computerSelection === "Rock") {
+            computerScore++
             return "Retry!";
         }
         else {
@@ -20,9 +23,11 @@ function roundGame(playerSelection, computerSelection) {
     }
     else if (playerSelection.toLowerCase() === "paper") {
         if (computerSelection === "Rock") {
+            playerScore++;
             return "You win the round!";
         }
         else if (computerSelection === "Paper") {
+            computerScore++;
             return "Retry!";
         }
         else {
@@ -31,9 +36,11 @@ function roundGame(playerSelection, computerSelection) {
     }
     else if (playerSelection.toLowerCase() === "scissors") {
         if (computerSelection === "Paper") {
+            playerScore++;
             return "You win the round!";
         }
         else if (computerSelection === "Scissors") {
+            computerScore++;
             return "Retry!";
         }
         else {
@@ -45,95 +52,24 @@ function roundGame(playerSelection, computerSelection) {
     }
 }
 
+let playerScore = 0;
+let computerScore = 0;
+const playerSelection = prompt("Insert input here");
 const computerSelection = getComputerChoice();
 
 function game() {
-    let computerScore = 0;
-    let playerScore = 0;
-    let result = roundGame(prompt("Choose one between rock, paper or scissors"), computerSelection);
-    if (result === "You win the round!") {
-        alert("You won the round!");
-        playerScore++;
-    }
-    else if (result === "You lose!") {
-        alert("You lost!");
-        computerScore++;
-    }
-    else if (result === "Retry!"){
-        alert("Retry!");
-    }
-    else {
-        alert("Type again please");
-    }
-    roundGame(prompt("Choose one between rock, paper or scissors"), computerSelection);
-    if (result === "You win the round!") {
-        alert("You won the round!");
-        playerScore++;
-    }
-    else if (result === "You lose!") {
-        alert("You lost!");
-        computerScore++;
-    }
-    else if (result === "Retry!"){
-        alert("Retry!");
-    }
-    else {
-        alert("Type again please");
-    }
-    roundGame(prompt("Choose one between rock, paper or scissors"), computerSelection);
-    if (result === "You win the round!") {
-        alert("You won the round!");
-        playerScore++;
-    }
-    else if (result === "You lose!") {
-        alert("You lost!");
-        computerScore++;
-    }
-    else if (result === "Retry!"){
-        alert("Retry!");
-    }
-    else {
-        alert("Type again please");
-    }
-    roundGame(prompt("Choose one between rock, paper or scissors"), computerSelection);
-    if (result === "You win the round!") {
-        alert("You won the round!");
-        playerScore++;
-    }
-    else if (result === "You lose!") {
-        alert("You lost!");
-        computerScore++;
-    }
-    else if (result === "Retry!"){
-        alert("Retry!");
-    }
-    else {
-        alert("Type again please");
-    }
-    roundGame(prompt("Choose one between rock, paper or scissors"), computerSelection);
-    if (result === "You win the round!") {
-        alert("You won the round!");
-        playerScore++;
-    }
-    else if (result === "You lose!") {
-        alert("You lost!");
-        computerScore++;
-    }
-    else if (result === "Retry!"){
-        alert("Retry!");
-    }
-    else {
-        alert("Type again please");
-    }
+    roundGame.call(playerSelection, computerSelection);
+    roundGame.call(playerSelection, computerSelection);
+    roundGame.call(playerSelection, computerSelection);
+    roundGame.call(playerSelection, computerSelection);
+    roundGame.call(playerSelection, computerSelection);
 
     if (playerScore > computerScore) {
-        return "You win the game!";
+        return ("You win!");
     }
-    else if (computerScore > playerScore) {
-        return "You lose the game!";
+    else {
+        return ("You lose!");
     }
 }
-
-
 
 console.log(game());
