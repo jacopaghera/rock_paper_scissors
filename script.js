@@ -12,7 +12,7 @@ function roundGame(playerSelection, computerSelection) {
             return "You win the round!";
         }
         else if (computerSelection === "Rock") {
-            return "One point each!";
+            return "Retry!";
         }
         else {
             return "You lose!";
@@ -23,7 +23,7 @@ function roundGame(playerSelection, computerSelection) {
             return "You win the round!";
         }
         else if (computerSelection === "Paper") {
-            return "One point each!";
+            return "Retry!";
         }
         else {
             return "You lose!";
@@ -34,7 +34,7 @@ function roundGame(playerSelection, computerSelection) {
             return "You win the round!";
         }
         else if (computerSelection === "Scissors") {
-            return "One point each!";
+            return "Retry!";
         }
         else {
             return "You lose!";
@@ -44,11 +44,57 @@ function roundGame(playerSelection, computerSelection) {
         return "Wrong input, please try again";
     }
 }
+let playerSelection = prompt("Pick one! (Note: only rock, paper, scissors accepted)")
+const computerSelection = getComputerChoice();
 
 function game() {
+    let computerScore = 0;
+    let playerScore = 0;
+    let result = roundGame(playerSelection, computerSelection);
     
+    if (result === "You win the round!") {
+        playerScore++;
+    }
+    else if (result = "You lose!") {
+        computerScore++;
+    }
+    playerSelection = prompt("Pick one! (Note: only rock, paper, scissors accepted)")
+    if (result === "You win the round!") {
+        playerScore++;
+    }
+    else if (result = "You lose!") {
+        computerScore++;
+    }
+    playerSelection = prompt("Pick one! (Note: only rock, paper, scissors accepted)")
+    if (result === "You win the round!") {
+        playerScore++;
+    }
+    else if (result = "You lose!") {
+        computerScore++;
+    }
+    playerSelection = prompt("Pick one! (Note: only rock, paper, scissors accepted)")
+    if (result === "You win the round!") {
+        playerScore++;
+    }
+    else if (result = "You lose!") {
+        computerScore++;
+    }
+    playerSelection = prompt("Pick one! (Note: only rock, paper, scissors accepted)")
+    if (result === "You win the round!") {
+        playerScore++;
+    }
+    else if (result = "You lose!") {
+        computerScore++;
+    }
+
+    if (playerScore > computerScore) {
+        return "You win the game!";
+    }
+    else if (computerScore > playerScore) {
+        return "You lose the game!";
+    }
 }
 
-const playerSelection = "Rock";
-const computerSelection = getComputerChoice();
-console.log(roundGame(playerSelection, computerSelection));
+
+
+console.log(game());
