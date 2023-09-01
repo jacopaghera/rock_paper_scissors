@@ -44,47 +44,86 @@ function roundGame(playerSelection, computerSelection) {
         return "Wrong input, please try again";
     }
 }
-let playerSelection = prompt("Pick one! (Note: only rock, paper, scissors accepted)")
+
 const computerSelection = getComputerChoice();
 
 function game() {
     let computerScore = 0;
     let playerScore = 0;
-    let result = roundGame(playerSelection, computerSelection);
-    
+    let result = roundGame(prompt("Choose one between rock, paper or scissors"), computerSelection);
     if (result === "You win the round!") {
+        alert("You won the round!");
         playerScore++;
     }
-    else if (result = "You lose!") {
+    else if (result === "You lose!") {
+        alert("You lost!");
         computerScore++;
     }
-    playerSelection = prompt("Pick one! (Note: only rock, paper, scissors accepted)")
+    else if (result === "Retry!"){
+        alert("Retry!");
+    }
+    else {
+        alert("Type again please");
+    }
+    roundGame(prompt("Choose one between rock, paper or scissors"), computerSelection);
     if (result === "You win the round!") {
+        alert("You won the round!");
         playerScore++;
     }
-    else if (result = "You lose!") {
+    else if (result === "You lose!") {
+        alert("You lost!");
         computerScore++;
     }
-    playerSelection = prompt("Pick one! (Note: only rock, paper, scissors accepted)")
+    else if (result === "Retry!"){
+        alert("Retry!");
+    }
+    else {
+        alert("Type again please");
+    }
+    roundGame(prompt("Choose one between rock, paper or scissors"), computerSelection);
     if (result === "You win the round!") {
+        alert("You won the round!");
         playerScore++;
     }
-    else if (result = "You lose!") {
+    else if (result === "You lose!") {
+        alert("You lost!");
         computerScore++;
     }
-    playerSelection = prompt("Pick one! (Note: only rock, paper, scissors accepted)")
+    else if (result === "Retry!"){
+        alert("Retry!");
+    }
+    else {
+        alert("Type again please");
+    }
+    roundGame(prompt("Choose one between rock, paper or scissors"), computerSelection);
     if (result === "You win the round!") {
+        alert("You won the round!");
         playerScore++;
     }
-    else if (result = "You lose!") {
+    else if (result === "You lose!") {
+        alert("You lost!");
         computerScore++;
     }
-    playerSelection = prompt("Pick one! (Note: only rock, paper, scissors accepted)")
+    else if (result === "Retry!"){
+        alert("Retry!");
+    }
+    else {
+        alert("Type again please");
+    }
+    roundGame(prompt("Choose one between rock, paper or scissors"), computerSelection);
     if (result === "You win the round!") {
+        alert("You won the round!");
         playerScore++;
     }
-    else if (result = "You lose!") {
+    else if (result === "You lose!") {
+        alert("You lost!");
         computerScore++;
+    }
+    else if (result === "Retry!"){
+        alert("Retry!");
+    }
+    else {
+        alert("Type again please");
     }
 
     if (playerScore > computerScore) {
