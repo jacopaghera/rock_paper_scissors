@@ -49,23 +49,27 @@ function roundGame(playerSelection, computerSelection) {
     }
 }
 
-function game() {
-    getComputerChoice();
-    roundGame(playerSelection, computerSelection);
-    getComputerChoice();
-    roundGame(playerSelection, computerSelection);
-    getComputerChoice();
-    roundGame(playerSelection, computerSelection);
-    getComputerChoice();
-    roundGame(playerSelection, computerSelection);
-    getComputerChoice();
-    roundGame(playerSelection, computerSelection);
+function finalResult(computerScore, playerScore) {
+    if (computerScore > playerScore) {
+        return "You lost the battle!";
+    }
+    else if (computerScore < playerScore) {
+        return "You won the battle!";
+    }
+    else {
+        return "Tie!";
+    }
+}
 
+function game(n) {
+    for (let i=0; i <= n; i++) {
+        let playerSelection = prompt("Insert your answer");
+        let computerSelection = getComputerChoice();
+        roundGame(playerSelection, computerSelection);
+    }
+    return finalResult(computerScore, playerScore) + " Computer score: " + computerScore.toString() + " Player score: " + playerScore.toString();
 }
 
 let playerScore = 0;
 let computerScore = 0;
-const playerSelection = prompt("Insert your answer");
-const computerSelection = getComputerChoice();
-
-console.log(roundGame(playerSelection, computerSelection))
+console.log(game(4));
