@@ -1,11 +1,11 @@
-function getComputerChoice() {
+function getComputerChoice() { //function that makes a random choice for the computer
     let array = ["Rock", "Paper", "Scissors"];
     let randomChoice = array[Math.floor(Math.random()*array.length)];
     return randomChoice;
 }
 
-function roundGame(playerSelection, computerSelection) {
-    if (playerSelection.toLowerCase() === "rock") {
+function roundGame(playerSelection, computerSelection) { //round function
+    if (playerSelection.toLowerCase() === "rock") { //if the choice is rock, based on the computer's choice one of the three quotes will appear.
         if (computerSelection === "Scissors") {
             playerScore++;
             return "You win the round! Rock beats scissors";
@@ -18,7 +18,7 @@ function roundGame(playerSelection, computerSelection) {
             return "You lose! Paper beats rock";
         }
     }
-    else if (playerSelection.toLowerCase() === "paper") {
+    else if (playerSelection.toLowerCase() === "paper") { //if the choice is paper, based on the computer's choice one of the three quotes will appear.
         if (computerSelection === "Rock") {
             playerScore++;
             return "You win the round! Paper beats rock";
@@ -31,7 +31,7 @@ function roundGame(playerSelection, computerSelection) {
             return "You lose! Scissors beat paper";
         }
     }
-    else if (playerSelection.toLowerCase() === "scissors") {
+    else if (playerSelection.toLowerCase() === "scissors") { //if the choice is scissors, based on the computer's choice one of the three quotes will appear.
         if (computerSelection === "Paper") {
             playerScore++;
             return "You win the round! Scissors beat paper";
@@ -50,7 +50,7 @@ function roundGame(playerSelection, computerSelection) {
 }
 
 function finalResult(computerScore, playerScore) {
-    if (computerScore > playerScore) {
+    if (computerScore > playerScore) { //if the computer score is greater than the player's, the string below appears (and viceversa)
         return "You lost the battle!";
     }
     else if (computerScore < playerScore) {
@@ -62,12 +62,12 @@ function finalResult(computerScore, playerScore) {
 }
 
 function game(n) {
-    for (let i=0; i <= n; i++) {
+    for (let i=0; i <= n; i++) { //loop that calls the round function and its arguments as many times as you wish
         let playerSelection = prompt("Insert your answer");
         let computerSelection = getComputerChoice();
         roundGame(playerSelection, computerSelection);
     }
-    return finalResult(computerScore, playerScore) + " Computer score: " + computerScore.toString() + " Player score: " + playerScore.toString();
+    return finalResult(computerScore, playerScore) + " Computer score: " + computerScore.toString() + " Player score: " + playerScore.toString(); //this returns the final string of the game
 }
 
 let playerScore = 0;
