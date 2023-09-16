@@ -1,3 +1,7 @@
+const buttonRock = document.querySelector("#chooserock");
+const buttonPaper = document.querySelector('#choosepaper');
+const buttonScissors = document.querySelector('#choosescissors');
+
 function getComputerChoice() { //function that makes a random choice for the computer
     let array = ["Rock", "Paper", "Scissors"];
     let randomChoice = array[Math.floor(Math.random()*array.length)];
@@ -8,44 +12,52 @@ function roundGame(playerSelection, computerSelection) { //round function
     if (playerSelection.toLowerCase() === "rock") { //if the choice is rock, based on the computer's choice one of the three quotes will appear.
         if (computerSelection === "Scissors") {
             playerScore++;
-            document.querySelector('.result').innerText("You win the round! Rock beats scissors");
+            document.querySelector('.result').innerText = "You win the round! Rock beats scissors";
         }
         else if (computerSelection === "Rock") {
-            computerScore++;
-            document.querySelector('.result').innerText("Retry!");
+            document.querySelector('.result').innerText = "Retry!";
         }
         else {
-            document.querySelector('.result').innerText("You lose! Paper beats rock!");
+            computerScore++;
+            document.querySelector('.result').innerText = "You lose! Paper beats rock!";
         }
     }
     else if (playerSelection.toLowerCase() === "paper") { //if the choice is paper, based on the computer's choice one of the three quotes will appear.
         if (computerSelection === "Rock") {
             playerScore++;
-            document.querySelector('.result').innerText("You win the round! Paper beats rock");
+            document.querySelector('.result').innerText = "You win the round! Paper beats rock";
         }
         else if (computerSelection === "Paper") {
-            computerScore++;
-            document.querySelector('.result').innerText("Retry!");;
+            document.querySelector('.result').innerText = "Retry!";
         }
         else {
-            document.querySelector('.result').innerText("You lose! Scissors beat paper!");
+            computerScore++;
+            document.querySelector('.result').innerText = "You lose! Scissors beat paper!";
         }
     }
     else if (playerSelection.toLowerCase() === "scissors") { //if the choice is scissors, based on the computer's choice one of the three quotes will appear.
         if (computerSelection === "Paper") {
             playerScore++;
-            document.querySelector('.result').innerText("You win the round! Scissors beat paper");
+            document.querySelector('.result').innerText = "You win the round! Scissors beat paper";
         }
         else if (computerSelection === "Scissors") {
-            computerScore++;
-            document.querySelector('.result').innerText("Retry!");
+            document.querySelector('.result').innerText = "Retry!";
         }
         else {
-            document.querySelector('.result').innerText("You lose! Rock beats scissors!");
+            computerScore++;
+            document.querySelector('.result').innerText = "You lose! Rock beats scissors!";
         }
     }
     else {
-        return "Wrong input, please try again";
+        document.querySelector('.result').innerText = "You lose! Rock beats scissors!";
+    }
+    document.querySelector('.yourscore').innerText = `${playerScore}!`;
+    document.querySelector('.computerscore').innerText = `${computerScore}!`;
+    if (computerScore === 5) {
+        document.querySelector('.finalresult').innerText = "You finally lost!";
+    }
+    else if (playerScore === 5) {
+        document.querySelector('.finalresult').innerText = "You finally won!";
     }
 }
 
@@ -61,13 +73,25 @@ function finalResult(computerScore, playerScore) {
     }
 }
 
-const buttonRock = document.querySelector(".chooseRock");
-const buttonPaper = document.querySelector('.choosePaper');
-const buttonScissors = document.querySelector('.chooseScissors');
+let playerScore = 0;
+let computerScore = 0;
+//console.log(game(4));
 
-buttonPaper.addEventListener('click', roundGame(paper, computerSelection));
-buttonRock.addEventListener('click', roundGame(rock, computerSelection));
-buttonScissors.addEventListener('click', roundGame(scissors, computerSelection));
+buttonPaper.addEventListener('click', () => {
+    if (playerScore<5 && computerScore<5) {
+        roundGame("paper", getComputerChoice());
+    }
+});
+buttonRock.addEventListener('click', () => {
+    if (playerScore<5 && computerScore<5) {
+        roundGame("rock", getComputerChoice());
+    }
+});
+buttonScissors.addEventListener('click', () => {
+    if (playerScore<5 && computerScore<5) {
+        roundGame("scissors", getComputerChoice())
+    }
+});
 
 
 //function game(n) {
@@ -79,6 +103,3 @@ buttonScissors.addEventListener('click', roundGame(scissors, computerSelection))
 //   return finalResult(computerScore, playerScore) + " Computer score: " + computerScore.toString() + " Player score: " + playerScore.toString(); //this returns the final string of the game
 //}
 
-let playerScore = 0;
-let computerScore = 0;
-console.log(game(4));
