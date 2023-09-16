@@ -8,40 +8,40 @@ function roundGame(playerSelection, computerSelection) { //round function
     if (playerSelection.toLowerCase() === "rock") { //if the choice is rock, based on the computer's choice one of the three quotes will appear.
         if (computerSelection === "Scissors") {
             playerScore++;
-            return "You win the round! Rock beats scissors";
+            document.querySelector('.result').innerText("You win the round! Rock beats scissors");
         }
         else if (computerSelection === "Rock") {
             computerScore++;
-            return "Retry!";
+            document.querySelector('.result').innerText("Retry!");
         }
         else {
-            return "You lose! Paper beats rock";
+            document.querySelector('.result').innerText("You lose! Paper beats rock!");
         }
     }
     else if (playerSelection.toLowerCase() === "paper") { //if the choice is paper, based on the computer's choice one of the three quotes will appear.
         if (computerSelection === "Rock") {
             playerScore++;
-            return "You win the round! Paper beats rock";
+            document.querySelector('.result').innerText("You win the round! Paper beats rock");
         }
         else if (computerSelection === "Paper") {
             computerScore++;
-            return "Retry!";
+            document.querySelector('.result').innerText("Retry!");;
         }
         else {
-            return "You lose! Scissors beat paper";
+            document.querySelector('.result').innerText("You lose! Scissors beat paper!");
         }
     }
     else if (playerSelection.toLowerCase() === "scissors") { //if the choice is scissors, based on the computer's choice one of the three quotes will appear.
         if (computerSelection === "Paper") {
             playerScore++;
-            return "You win the round! Scissors beat paper";
+            document.querySelector('.result').innerText("You win the round! Scissors beat paper");
         }
         else if (computerSelection === "Scissors") {
             computerScore++;
-            return "Retry!";
+            document.querySelector('.result').innerText("Retry!");
         }
         else {
-            return "You lose! Rock beats scissors";
+            document.querySelector('.result').innerText("You lose! Rock beats scissors!");
         }
     }
     else {
@@ -61,7 +61,7 @@ function finalResult(computerScore, playerScore) {
     }
 }
 
-const buttonRock = document.querySelector('.chooseRock');
+const buttonRock = document.querySelector(".chooseRock");
 const buttonPaper = document.querySelector('.choosePaper');
 const buttonScissors = document.querySelector('.chooseScissors');
 
