@@ -61,14 +61,23 @@ function finalResult(computerScore, playerScore) {
     }
 }
 
-function game(n) {
-    for (let i=0; i <= n; i++) { //loop that calls the round function and its arguments as many times as you wish
-        let playerSelection = prompt("Insert your answer");
-        let computerSelection = getComputerChoice();
-        roundGame(playerSelection, computerSelection);
-    }
-    return finalResult(computerScore, playerScore) + " Computer score: " + computerScore.toString() + " Player score: " + playerScore.toString(); //this returns the final string of the game
-}
+const buttonRock = document.querySelector('.chooseRock');
+const buttonPaper = document.querySelector('.choosePaper');
+const buttonScissors = document.querySelector('.chooseScissors');
+
+buttonPaper.addEventListener('click', roundGame(paper, computerSelection));
+buttonRock.addEventListener('click', roundGame(rock, computerSelection));
+buttonScissors.addEventListener('click', roundGame(scissors, computerSelection));
+
+
+//function game(n) {
+//    for (let i=0; i <= n; i++) { //loop that calls the round function and its arguments as many times as you wish
+//        let playerSelection = prompt("Insert your answer");
+//        let computerSelection = getComputerChoice();
+//        roundGame(playerSelection, computerSelection);
+//    }
+//   return finalResult(computerScore, playerScore) + " Computer score: " + computerScore.toString() + " Player score: " + playerScore.toString(); //this returns the final string of the game
+//}
 
 let playerScore = 0;
 let computerScore = 0;
